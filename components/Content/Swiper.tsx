@@ -1,7 +1,5 @@
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import Link from "next/link";
 import Image from "next/image";
 import chidan from "../../public/chi-dan.png";

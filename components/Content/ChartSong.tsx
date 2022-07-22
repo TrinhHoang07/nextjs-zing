@@ -58,5 +58,6 @@ export const data = {
 };
 
 export default function ChartSong() {
+    // @ts-ignore
     return <Line options={options} data={data} />;
 }

@@ -73,7 +73,7 @@ function Control() {
         audioRef.current && audioRef.current.pause();
     }
 
-    return <div className={"col-span-5 h-control-px text-white bg-four"}>
+    return <div className={"col-span-5 select-none h-control-px text-white bg-four"}>
         <audio ref={audioRef} onEnded={handleEnded} src={infoSong.src}></audio>
         <div className="flex items-center justify-between h-full mx-6">
             <div className="flex items-center w-30">

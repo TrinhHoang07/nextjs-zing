@@ -83,7 +83,7 @@ function ZingChart() {
                         </div>
                     ))}
                     <div className={"text-center"}>
-                        <Link href="#">
+                        <Link href="/zingchart">
                             <a className={"mt-1 inline-block text-white outline-0 py-1 border border-avatar text-base rounded-3xl bg-primary px-6"}>Xem thêm</a>
                         </Link>
                     </div>

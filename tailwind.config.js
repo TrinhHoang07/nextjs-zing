@@ -21,11 +21,15 @@ module.exports = {
         arrow: '#506084',
         dotHover: '#344670',
         hoverImg: 'rgba(255,255,255,0.2)',
-        rgbaT: 'rgba(0,0,0,0.5)'
+        rgbaT: 'rgba(0,0,0,0.5)',
+        follow: '#637191',
+        after: '#6d6875',
+        hoverAfter: '#7c7783'
       },
       spacing: {
         'nav': '6px',
-        '59': '59px'
+        '59': '59px',
+        '67': '65%'
       },
       height: {
         '1-px': '1px',
@@ -33,7 +37,8 @@ module.exports = {
         'header-px': '70px',
         'content': 'calc(100% - 70px)',
         '15': '60px',
-        '70px': '70px'
+        '70px': '70px',
+        'h-full-h': 'calc(100% - 32px)'
       },
       width: {
         '30': '30%',
@@ -41,7 +46,11 @@ module.exports = {
         '96px': '96px',
         '15': '60px',
         '12-5': '12.5%',
-        '70px': '70px'
+        '70px': '70px',
+        '292': '292px',
+        '584': '592px',
+        'bug': 'calc(50% - 24px)',
+        '120px': '120px'
       },
       gridTemplateColumns: {
         'pro': '240px 1fr'
@@ -66,6 +75,12 @@ module.exports = {
       },
       fontSize: {
         'ssm': '10px'
+      },
+      lineHeight: {
+        56: '56px'
+      },
+      borderRadius: {
+        '20': '20px'
       }
     }
   },

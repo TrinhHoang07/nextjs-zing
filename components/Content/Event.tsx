@@ -3,46 +3,19 @@ import Image from "next/image";
 import vn from "../../public/event.jpg";
 import {Avatar} from "antd";
 import {FaUserCircle} from "react-icons/fa";
+import {useAxios} from "../../hooks";
 
-interface Song {
-    id: number,
-    name: string,
-    des: string,
-    ph: string,
-    count: number
-}
-
-const eventSongs:Song[] = [
-    {
-        id: 1,
-        name: 'Bài Nhạc Đánh Rơi - Yanbi,...',
-        des: '20:00 Thứ Sáu, 22 tháng 7',
-        ph: 'Phát hành bài hát',
-        count: 112
-    },
-    {
-        id: 2,
-        name: 'Minishow Ai Chung Tình Được Mãi',
-        des: '20:30 Thứ Năm, 21 tháng 7',
-        ph: 'Minishow',
-        count: 334
-    },
-    {
-        id: 3,
-        name: 'Trạm Ký Gửi Nổi Buồn - Chăng 3',
-        des: '21:00 Chủ Nhật, 24 tháng 7',
-        ph: 'minishow',
-        count: 674
-    },
-]
 
 function Event() {
+
+    const [data] = useAxios('api/events');
+
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>Sự Kiện</h2>
             <div className="flex pt-4 items-center justify-evenly">
                 {
-                    eventSongs.map(song => (
+                    data?.general.map(song => (
                         <div key={song.id} className={"w-1/3 h-auto p-3"}>
                             <Link href={""}>
                                 <a className={"flex overflow-hidden rounded-md"}>

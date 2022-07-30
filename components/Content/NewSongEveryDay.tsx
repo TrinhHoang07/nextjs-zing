@@ -5,43 +5,18 @@ import {BsPlayCircle} from "react-icons/bs";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
 import {Tooltip} from "antd";
 import Link from "next/link";
-
-interface Song {
-    id: number,
-    name: string,
-    des: string
-}
-
-const newSongEveryDay:Song[] = [
-    {
-        id: 1,
-        name: 'V-Pop Tháng 7/2022',
-        des: 'Da LAB Phương Ly Văn Mai Hương'
-    },
-    {
-        id: 2,
-        name: 'US-UK Tháng 7/2022',
-        des: 'Ellie Goulding, Calvin Harris, Imagine Dragons'
-    },
-    {
-        id: 3,
-        name: 'K-Pop Tháng 7/2022',
-        des: 'Sunmi, aespa, WINNER'
-    },
-    {
-        id: 4,
-        name: 'C-Pop Tháng 7/2022',
-        des: 'Bất Thị Hoa Hỏa Nha, INTO1 Lưu Vũ, 蘇星婕 / Tô Tinh Tiệp'
-    }
-]
+import {useAxios} from "../../hooks";
 
 
 function NewSongEveryDay() {
+
+   const [data] = useAxios('api/newsongeverydays');
+
     return (
         <div className={"mt-6"}>
             <h2 className={"text-white font-bold text-xl"}>Nhạc Mới Mỗi Ngày</h2>
             <div className="flex mt-6">
-                {newSongEveryDay.map(info => (
+                {data?.general.map(info => (
                     <div key={info.id} className="w-1/4 px-2">
                         <Link href={""}>
                             <a>

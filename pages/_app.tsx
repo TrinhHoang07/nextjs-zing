@@ -10,6 +10,7 @@ import type {AppProps} from 'next/app'
 import Layout from "../Layout";
 
 function MyApp({Component, pageProps}: AppProps) {
+
     return (
         <RecoilRoot>
             <Layout>

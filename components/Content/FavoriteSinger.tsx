@@ -7,15 +7,10 @@ import Image from 'next/image';
 import butter from '../../public/butter.jpg';
 import {BsPlayCircle} from "react-icons/bs";
 import Link from 'next/link';
+import {favoriteSinger} from "../../interface";
 
-interface Song {
-    id: number,
-    name: any,
-    des: string,
-    mt: any
-}
 
-const corners:Song[] = [
+const corners:favoriteSinger[] = [
     {
         id: 1,
         name: img,

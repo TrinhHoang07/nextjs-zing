@@ -5,42 +5,17 @@ import {BsPlayCircle} from "react-icons/bs";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
 import {Tooltip} from "antd";
 import Link from "next/link";
-
-interface Song {
-    id: number,
-    name: string,
-    des: string
-}
-
-const newSongs:Song[] = [
-    {
-        id: 1,
-        name: 'Đám Cưới Tụi Mình (Single)',
-        des: 'Kỳ Lân Luxury'
-    },
-    {
-        id: 2,
-        name: 'Điều Chưa Nói (Single)',
-        des: 'Duongg'
-    },
-    {
-        id: 3,
-        name: 'Say Love (Single)',
-        des: 'dinhhung, T-Golden'
-    },
-    {
-        id: 4,
-        name: 'Sweet (Single)',
-        des: 'Hngle, Lil Tian'
-    }
-]
+import {useAxios} from "../../hooks";
 
 
 function NewSongN2() {
+
+    const [data] = useAxios('api/newsongn2');
+
     return (
         <div className={"mt-6"}>
             <div className="flex mt-6">
-                {newSongs.map(info => (
+                {data?.general.map(info => (
                     <div key={info.id} className="w-1/4 px-2">
                         <Link href={""}>
                             <a>

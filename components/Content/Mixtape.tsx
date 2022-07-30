@@ -5,43 +5,18 @@ import {BsPlayCircle} from "react-icons/bs";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
 import Link from 'next/link';
 import {Tooltip} from "antd";
-
-interface Song {
-    id: number,
-    name: string,
-    des: string
-}
-
-const newSongEveryDay:Song[] = [
-    {
-        id: 1,
-        name: 'Mixtapes Họ Yêu Ai Mất Rồiii',
-        des: ''
-    },
-    {
-        id: 2,
-        name: 'Mixtape Thương Thầm',
-        des: 'NB3 Hoài Bảo, Lee Ken, Nal'
-    },
-    {
-        id: 3,
-        name: 'Mixtape Răng Khôn',
-        des: 'Phí Phương Anh, RIN9, Orange'
-    },
-    {
-        id: 4,
-        name: 'Mixtape Ánh Chiều Tàn (Lofi Version)',
-        des: ''
-    }
-]
+import {useAxios} from "../../hooks";
 
 
 function Mixtape() {
+
+    const [data] = useAxios('api/mixtape');
+
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>Mixtape Yêu Thích</h2>
             <div className="flex mt-6">
-                {newSongEveryDay.map(info => (
+                {data?.general.map(info => (
                     <div key={info.id} className="w-1/4 px-2">
                         <Link href={"#"}>
                             <a>

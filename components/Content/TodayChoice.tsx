@@ -5,43 +5,18 @@ import {BsPlayCircle} from "react-icons/bs";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
 import {Tooltip} from "antd";
 import Link from "next/link";
-
-interface Song {
-    id: number,
-    name: string,
-    des: string
-}
-
-const chooseSongToday:Song[] = [
-    {
-        id: 1,
-        name: 'Nhạc Cho Thứ Hai',
-        des: 'Pop tràn đầy năng lượng cho thứ hai đầu tiên'
-    },
-    {
-        id: 2,
-        name: 'Catchy Tune',
-        des: 'Dễ nghe dễ nhớ, bắt tai gây nghiện ngay từ lần đầu tiên'
-    },
-    {
-        id: 3,
-        name: 'V-Pop Summer',
-        des: 'Mùa hè đến gần với những sự lựa chọn V-Pop đầy màu sắc'
-    },
-    {
-        id: 4,
-        name: 'Coffe & Chill',
-        des: 'Sắm ngay cho mình một cốc cafe và bật ngay chế độ '
-    }
-]
+import {useAxios} from "../../hooks";
 
 
 function TodayChoice() {
+
+    const [data] = useAxios('api/todaychoices');
+
     return (
         <div className={"mt-6"}>
             <h2 className={"text-white font-bold text-xl"}>Lựa Chọn Hôm Nay</h2>
             <div className="flex mt-6">
-                {chooseSongToday.map(info => (
+                {data?.general.map(info => (
                     <div key={info.id} className="w-1/4 px-2">
                         <Link href={""}>
                             <a>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import image from '../../public/control-img.jpg';
-import {Slider} from 'antd';
+import {Slider, Tooltip} from 'antd';
 import { AiOutlineHeart} from "react-icons/ai";
 import {BsPlayCircle, BsThreeDots, BsPauseCircle} from "react-icons/bs";
 import {TiArrowShuffle} from "react-icons/ti";
@@ -9,8 +9,8 @@ import {IoIosRepeat} from "react-icons/io";
 import {GiMicrophone} from "react-icons/gi";
 import {BiWindows} from "react-icons/bi";
 import {FiVolume2, FiVolumeX} from "react-icons/fi";
-import {audioSong} from '../../store';
-import {useRecoilValue} from "recoil";
+import {audioSong, currentIndexSong, arrAudioSong} from '../../store';
+import {useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
 import {useEffect, useRef, useState} from 'react';
 import {Helper} from "../../uiltil/helper";
 
@@ -24,6 +24,13 @@ function Control() {
     const [durationTime, setDurationTime] = useState<number>(0);
     const [sliderValue, setSliderValue] = useState<number>(0);
     const [volume, setVolume] = useState<number>(1);
+    const arrAudio = useRecoilValue(arrAudioSong);
+    const setAudio = useSetRecoilState(audioSong);
+    const [currentIndex, setCurrentIndex] = useRecoilState(currentIndexSong);
+    const [isRepeat, setIsRepeat] = useState<boolean>(false);
+    const [isRandom, setIsRandom] = useState<boolean>(false);
+
+
 
 
     useEffect(() => {
@@ -44,7 +51,12 @@ function Control() {
 
 
     const handleEnded = () => {
-        setIsPlay(false);
+        if(isRepeat) {
+            handlePlay();
+        } else {
+            setIsPlay(false);
+            handleNextSong();
+        }
     }
 
     const handleChangeSlider = (value: number) => {
@@ -73,6 +85,49 @@ function Control() {
         audioRef.current && audioRef.current.pause();
     }
 
+    const handlePrevSong = () => {
+        if(isRandom) {
+            const i = Math.floor(Math.random() * arrAudio.length);
+            const current = arrAudio.find((item, index) => index === i);
+            setCurrentIndex(i);
+            if(current) {
+                setAudio(current);
+            }
+        } else {
+            setCurrentIndex(prev => prev - 1);
+            if(currentIndex - 1 <= 0) {
+                setCurrentIndex(0);
+            }
+            const current = arrAudio.find((item, index) => index === currentIndex - 1);
+            if(current) {
+                setAudio(current);
+            }
+        }
+    }
+
+    const handleNextSong = () => {
+        if(isRandom) {
+            const i = Math.floor(Math.random() * arrAudio.length);
+            const current = arrAudio.find((item, index) => index === i);
+            setCurrentIndex(i);
+            if(current) {
+                setAudio(current);
+            }
+        } else {
+            setCurrentIndex(prev => prev + 1);
+            if(currentIndex + 1 >= arrAudio.length - 1) {
+                setCurrentIndex(arrAudio.length - 1);
+            }
+            const current = arrAudio.find((item, index) => index === currentIndex + 1);
+            if(current) {
+                setAudio(current);
+            }
+        }
+
+    }
+
+
+
     return <div className={"col-span-5 select-none h-control-px text-white bg-four"}>
         <audio ref={audioRef} onEnded={handleEnded} src={infoSong.src}></audio>
         <div className="flex items-center justify-between h-full mx-6">
@@ -91,27 +146,35 @@ function Control() {
             </div>
             <div className={"flex-1"}>
                 <div className="flex items-center justify-center mt-2">
-                    <div className={"w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
-                        <TiArrowShuffle size={"1.5rem"}/>
-                    </div>
-                    <div className={"w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
-                        <MdSkipPrevious size={"1.5rem"}/>
-                    </div>
+                    <Tooltip mouseLeaveDelay={0} color={"#333333"} title={"Phát ngẫu nhiên"}>
+                        <div onClick={() => setIsRandom(prev => !prev)} className={`cursor-pointer w-8 h-8 mx-3 ${isRandom && 'text-fuchsia-600'} flex rounded-full items-center justify-center hover:bg-controlHover`}>
+                            <TiArrowShuffle size={"1.5rem"}/>
+                        </div>
+                    </Tooltip>
+                    <Tooltip mouseLeaveDelay={0} color={"#333333"} title={"Bài trước đó"}>
+                        <div onClick={handlePrevSong} className={"cursor-pointer w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
+                            <MdSkipPrevious size={"1.5rem"}/>
+                        </div>
+                    </Tooltip>
                     {isPlay ? (
-                        <div onClick={handlePause} className={"w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
+                        <div onClick={handlePause} className={"cursor-pointer w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
                             <BsPauseCircle size={"2rem"}/>
                         </div>
                     ) : (
-                        <div onClick={handlePlay} className={"w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
+                        <div onClick={handlePlay} className={"cursor-pointer w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
                             <BsPlayCircle size={"2rem"}/>
                         </div>
                     )}
-                    <div className={"w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
-                        <MdSkipNext size={"1.5rem"}/>
-                    </div>
-                    <div className={"w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
-                        <IoIosRepeat size={"1.5rem"}/>
-                    </div>
+                    <Tooltip mouseLeaveDelay={0} color={"#333333"} title={"Bài tiếp theo"}>
+                        <div onClick={handleNextSong} className={"cursor-pointer w-8 h-8 mx-3 flex rounded-full items-center justify-center hover:bg-controlHover"}>
+                            <MdSkipNext size={"1.5rem"}/>
+                        </div>
+                    </Tooltip>
+                    <Tooltip mouseLeaveDelay={0} color={"#333333"} title={"Lặp lại bài hát hiện tại"}>
+                        <div onClick={() => setIsRepeat(prev => !prev)} className={`cursor-pointer w-8 h-8 mx-3 ${isRepeat && 'text-fuchsia-600'} flex rounded-full items-center justify-center hover:bg-controlHover`}>
+                            <IoIosRepeat size={"1.5rem"}/>
+                        </div>
+                    </Tooltip>
                 </div>
                 <div className={"pt-2 flex items-center"}>
                     <span className={"mr-1"}>{timeCurrent ? Helper.secondToMinus(timeCurrent) : "00:00"}</span>

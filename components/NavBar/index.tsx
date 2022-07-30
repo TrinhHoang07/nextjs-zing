@@ -15,41 +15,50 @@ const info = [
     {
         icon: <MdOutlineLibraryMusic size={sizeIcon}/>,
         name: 'Cá Nhân',
+        link: '#'
     },
     {
         icon: <CgCircleci size={sizeIcon}/>,
         name: 'Khám Phá',
-        active: true
+        active: true,
+        link: '/'
     },
     {
         icon: <MdMultilineChart size={sizeIcon}/>,
-        name: '#zingchart'
+        name: '#zingchart',
+        link: '/zingchart'
     },
     {
         icon: <FiRadio size={sizeIcon}/>,
-        name: 'Radio'
+        name: 'Radio',
+        link: '/radio'
     },
     {
         icon: <MdOutlineFeed size={sizeIcon}/>,
-        name: 'Theo Dõi'
+        name: 'Theo Dõi',
+        link: '/following'
     }
 ]
 const topMusic = [
     {
         icon: <BsMusicNoteBeamed size={sizeIcon}/>,
-        name: 'Nhạc Mới'
+        name: 'Nhạc Mới',
+        link: '/new-song'
     },
     {
         icon: <BiCategory size={sizeIcon}/>,
-        name: 'Thể Loại'
+        name: 'Thể Loại',
+        link: '/hub'
     },
     {
         icon: <AiOutlineStar size={sizeIcon}/>,
-        name: 'Top 100'
+        name: 'Top 100',
+        link: ''
     },
     {
         icon: <MdSlideshow size={sizeIcon}/>,
-        name: 'MV'
+        name: 'MV',
+        link: '/mv',
     },
 ]
 

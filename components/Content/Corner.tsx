@@ -5,43 +5,18 @@ import {BsPlayCircle} from "react-icons/bs";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
 import Link from 'next/link';
 import {Tooltip} from "antd";
-
-interface Song {
-    id: number,
-    name: string,
-    des: string
-}
-
-const corners:Song[] = [
-    {
-        id: 1,
-        name: 'V-Pop I Have A Crush On You',
-        des: 'Ở đây có thính, nghe là dính đó nha'
-    },
-    {
-        id: 2,
-        name: 'K-Pop Hot Summer',
-        des: 'Sẵn sàng cho những ngày hè sôi động cùng giai điệu KPop'
-    },
-    {
-        id: 3,
-        name: 'Pop The Rock',
-        des: 'Pop Rock ở đây là hay nhất'
-    },
-    {
-        id: 4,
-        name: 'Smooth Jazz Tuesday',
-        des: 'Nhạc Jazz nhẹ nhàng cho bạn làm việc hiệu quả'
-    }
-]
+import {useAxios} from "../../hooks";
 
 
 function Corner() {
+
+    const [data] = useAxios('api/corner');
+
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>XONE's CORNER</h2>
             <div className="flex mt-6">
-                {corners.map(info => (
+                {data?.general.map(info => (
                     <div key={info.id} className="w-1/4 px-2">
                         <Link href={"#"}>
                             <a>

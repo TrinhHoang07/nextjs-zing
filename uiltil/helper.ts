@@ -27,6 +27,8 @@ export class Helper {
     }
 }
 
-export function dispatchSong(set:Function, value: Song) {
-    set(value);
+export function dispatchSong(setAudio:Function, valueAudio: Song, setArrAudio: Function, valueArr: Song[], setCurrentIndexSong: Function, valueIndex: number) {
+    setAudio(valueAudio);
+    setArrAudio(valueArr);
+    setCurrentIndexSong(valueIndex);
 }

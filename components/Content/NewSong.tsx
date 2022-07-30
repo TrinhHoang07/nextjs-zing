@@ -3,42 +3,19 @@ import Image from "next/image";
 import mtk from "../../public/mtk.jpg";
 import {BsPlayCircle} from "react-icons/bs";
 import NewSongN2 from "./NewSongN2";
+import {useAxios} from "../../hooks";
 
-interface newSong {
-    id: number,
-    name: string,
-    des: string,
-    date: string
-}
-
-const newSongs:newSong[] = [
-    {
-        id: 1,
-        name: 'Mặt Trời Khóc',
-        des: 'Emcee L, Orange',
-        date: '16.07.2022'
-    },
-    {
-        id: 2,
-        name: 'Fade - Alan walker',
-        des: 'EDM - L391',
-        date: '18.07.2022'
-    },
-    {
-        id: 3,
-        name: 'Nếu Ngày Ấy',
-        des: 'Sobin Hoàng Sơn',
-        date: '20.07.2022'
-    }
-]
 
 function NewSong() {
+
+    const [data] = useAxios('api/newsongs');
+
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>Nhạc Mới</h2>
             <div className="flex pt-4 items-center justify-evenly">
                 {
-                    newSongs.map(song => (
+                    data?.general.map(song => (
                         <div key={song.id} className={"w-1/3 h-auto p-3"}>
                             <Link href={"#"}>
                                 <a className={"flex p-4 bg-primary overflow-hidden hpt rounded-md"}>

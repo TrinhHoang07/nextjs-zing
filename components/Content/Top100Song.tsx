@@ -5,43 +5,18 @@ import {BsPlayCircle} from "react-icons/bs";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
 import {Tooltip} from "antd";
 import Link from "next/link";
-
-interface Song {
-    id: number,
-    name: string,
-    des: string
-}
-
-const top100:Song[] = [
-    {
-        id: 1,
-        name: 'Top 100 Nhạc V-Pop Hay Nhất',
-        des: 'Dương Edward, Miu Lê, Châu Khải Phong'
-    },
-    {
-        id: 2,
-        name: 'Top 100 Bài Hát Nhạc Trẻ',
-        des: 'Miu Lê, Karik, Hương Ly'
-    },
-    {
-        id: 3,
-        name: 'Top 100 Pop Âu Mỹ Hay Nhất',
-        des: 'Adele, The Kid LAROI, Justin Bieber'
-    },
-    {
-        id: 4,
-        name: 'Top 100 Nhạc...',
-        des: 'Alan Walker, K-391, Emelie Hollow'
-    }
-]
+import {useAxios} from "../../hooks";
 
 
 function Top100Song() {
+
+    const [data] = useAxios('api/top100');
+
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>Top 100</h2>
             <div className="flex mt-6">
-                {top100.map(info => (
+                {data?.general.map(info => (
                     <div key={info.id} className="w-1/4 px-2">
                         <Link href={"#"}>
                             <a>

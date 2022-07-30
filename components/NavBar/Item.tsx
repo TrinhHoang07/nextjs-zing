@@ -1,15 +1,34 @@
-import {CgCircleci} from "react-icons/cg";
+import {useRef} from "react";
+import Link from "next/link";
+import {useRouter} from "next/router";
 export interface Info {
     icon: JSX.Element,
     name: string,
-    active?: boolean
+    active?: boolean,
+    link: string,
 }
+
 function Item({item}: {item: Info}) {
+
+    const router = useRouter();
+    const {pathname} = router;
+
+    const eRef = useRef<HTMLAnchorElement>(null);
+    const handleActive = () => {
+        const current = document.querySelector('.js-active.bg-secondary');
+        if(current) {
+            current.classList.remove('bg-secondary');
+        }
+        eRef.current && eRef.current.classList.add('bg-secondary')
+    }
+
     return (
-        <div className={`text-three flex items-center py-nav cursor-pointer pl-7 ${item.active ? 'bg-secondary text-white' : ''}`}>
-            {item.icon}
-            <p className="ml-2 text-sm font-medium">{item.name}</p>
-        </div>
+        <Link href={item.link}>
+            <a ref={eRef} onClick={handleActive} className={`${pathname === item.link && 'bg-secondary'} select-none text-three js-active flex items-center py-nav cursor-pointer pl-7`}>
+                {item.icon}
+                <p className="ml-2 text-sm font-medium">{item.name}</p>
+            </a>
+        </Link>
     )
 }
 export default Item;

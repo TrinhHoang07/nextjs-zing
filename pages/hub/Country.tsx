@@ -38,9 +38,9 @@ function Country() {
     return (
         <div className={"mt-4"}>
             <h2 className={"text-white font-bold text-xl"}>Quốc Gia</h2>
-            <div className="flex mt-6">
+            <div className="flex lg:mt-6 md:mt-2 flex-wrap">
                 {MA.map(info => (
-                    <div key={info.id} className="w-1/3 px-2">
+                    <div key={info.id} className="lg:w-1/3 md:w-1/2 lg:pt-0 md:pt-4 px-2">
                         <Link href={"#"}>
                             <a>
                                 <div className={"relative flex rounded overflow-hidden"}>

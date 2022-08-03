@@ -67,7 +67,7 @@ function Header() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onFocus={handleFocused}
-                    className={"w-full h-10 border-0 outline-0 bg-input text-sm rounded-full pl-1"}
+                    className={"w-full h-10 border-0 outline-0 bg-input text-sm rounded-full pl-1 select-none"}
                     type="text"
                     id="input"
                     placeholder={"Tìm kiếm bài hát, nghệ sĩ, lời bài hát, ..."}

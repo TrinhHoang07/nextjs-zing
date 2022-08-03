@@ -13,10 +13,10 @@ function Event() {
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>Sự Kiện</h2>
-            <div className="flex pt-4 items-center justify-evenly">
+            <div className="flex pt-4 flex-wrap items-center justify-evenly">
                 {
                     data?.general.map(song => (
-                        <div key={song.id} className={"w-1/3 h-auto p-3"}>
+                        <div key={song.id} className={"lg:w-1/3 md:w-1/2 h-auto p-3"}>
                             <Link href={""}>
                                 <a className={"flex overflow-hidden rounded-md"}>
                                     <div className={"relative flex "}>

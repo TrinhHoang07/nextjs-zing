@@ -13,10 +13,10 @@ function NewSong() {
     return (
         <div className={"mt-8"}>
             <h2 className={"text-white font-bold text-xl"}>Nhạc Mới</h2>
-            <div className="flex pt-4 items-center justify-evenly">
+            <div className="flex pt-4 items-center justify-evenly flex-wrap">
                 {
                     data?.general.map(song => (
-                        <div key={song.id} className={"w-1/3 h-auto p-3"}>
+                        <div key={song.id} className={"lg:w-1/3 md:w-1/2 h-auto p-3"}>
                             <Link href={"#"}>
                                 <a className={"flex p-4 bg-primary overflow-hidden hpt rounded-md"}>
                                     <div className={"relative flex-1 flex overflow-hidden rounded-md"}>

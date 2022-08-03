@@ -18,12 +18,12 @@ function ZingChart() {
 
     return (
         <div className={"bg-primary mt-6"}>
-            <div className="p-4 flex">
-                <div className="w-5/12 p-2">
-                    <div className="flex items-center text-white">
-                        <h2 className="font-bold text-3xl text-white mr-2">#zingchart</h2>
-                        <BsPlayCircleFill size={"1.75rem"}/>
-                    </div>
+            <div className="p-4 flex items-center text-white">
+                <h2 className="font-bold text-3xl text-white mr-2">#zingchart</h2>
+                <BsPlayCircleFill size={"1.75rem"}/>
+            </div>
+            <div className="lg:flex md:flex-col-reverse lg:flex-row">
+                <div className="lg:w-5/12 flex-shrink-0 p-2 md:w-full">
                     {data?.general.map(info => (
                         <div key={info.id} onDoubleClick={() => dispatchSong(setAudioSong, {
                             id: info.id,
@@ -61,7 +61,7 @@ function ZingChart() {
                         </Link>
                     </div>
                 </div>
-                <div className={"flex-1 flex flex-col justify-end p-2 mb-3 mt-18"}>
+                <div className={"lg:w-7/12 md:flex-1 md:w-full flex flex-col justify-end p-2 mb-3 mt-18"}>
                     <ChartSong/>
                 </div>
             </div>

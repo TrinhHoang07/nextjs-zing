@@ -157,8 +157,8 @@ function NewReleased() {
                 </div>
             </div>
             {isAlbum ? (
-                <div className="flex items-center mt-6">
-                    <div className="w-1/3 h-auto text-white ">
+                <div className="flex flex-wrap items-center mt-6">
+                    <div className="lg:w-1/3 md:w-1/2 h-auto text-white ">
                         {songOne.map(song => (
                             <div key={song.id} onDoubleClick={() => dispatchSong(setAudioSong,{
                                 id: song.id,
@@ -183,7 +183,7 @@ function NewReleased() {
                             </div>
                         ))}
                     </div>
-                    <div className="w-1/3 h-auto mx-6 text-white">
+                    <div className="lg:w-1/3 md:w-1/2 h-auto px-6 md:px-0 text-white">
                         {songTwo.map(song => (
                             <div key={song.id} onDoubleClick={() => dispatchSong(setAudioSong,{
                                 id: song.id,
@@ -208,7 +208,7 @@ function NewReleased() {
                             </div>
                         ))}
                     </div>
-                    <div className="w-1/3 h-auto text-white">
+                    <div className="lg:w-1/3 h-auto md:w-full lg:block md:flex flex-wrap text-white">
                         {songThree.map(song => (
                             <div key={song.id} onDoubleClick={() => dispatchSong(setAudioSong,{
                                 id: song.id,
@@ -217,7 +217,7 @@ function NewReleased() {
                                 src: song.src
                             }, setArrAudio, [...songOne, ...songTwo, ...songThree],
                                 setCurrentIndexSong, (song.id - 1)
-                            )} className="flex items-center select-none cursor-pointer justify-between hpt hover:bg-input py-2 pl-2 rounded">
+                            )} className="flex md:w-1/2 lg:w-full items-center select-none cursor-pointer justify-between hpt hover:bg-input py-2 pl-2 rounded">
                                 <div className="flex">
                                     <Image src={img} width={40} height={40} className={"object-cover rounded"} alt={"Logo song"}/>
                                     <div className={"ml-2"}>
@@ -234,8 +234,8 @@ function NewReleased() {
                         ))}
                     </div>
                 </div>
-            ) : (<div className="flex items-center mt-6">
-                <div className="w-1/3 h-auto text-white">
+            ) : (<div className="flex flex-wrap items-center mt-6">
+                <div className="lg:w-1/3 md:w-1/2 h-auto text-white">
                     {mvInfoOne.map(mv => (
                         <div key={mv.id} onDoubleClick={() => dispatchSong(setAudioSong,{
                             id: mv.id,
@@ -260,7 +260,7 @@ function NewReleased() {
                         </div>
                     ))}
                 </div>
-                <div className="w-1/3 h-auto mx-6 text-white">
+                <div className="lg:w-1/3 md:w-1/2 h-auto px-6 md:px-0 text-white">
                     {mvInfoTwo.map(mv => (
                         <div key={mv.id} onDoubleClick={() => dispatchSong(setAudioSong,{
                             id: mv.id,
@@ -285,7 +285,7 @@ function NewReleased() {
                         </div>
                     ))}
                 </div>
-                <div className="w-1/3 h-auto text-white">
+                <div className="lg:w-1/3 md:w-full lg:block md:flex md:flex-wrap h-auto text-white">
                     {mvInfoThree.map(mv => (
                         <div key={mv.id} onDoubleClick={() => dispatchSong(setAudioSong,{
                             id: mv.id,
@@ -294,7 +294,7 @@ function NewReleased() {
                             src: mv.src
                         }, setArrAudio, [...mvInfoOne, ...mvInfoTwo, ...mvInfoThree],
                             setCurrentIndexSong, (mv.id - 1)
-                        )} className="flex items-center select-none cursor-pointer justify-between hpt hover:bg-input py-2 pl-2 rounded">
+                        )} className="flex md:w-1/2 lg:w-full items-center select-none cursor-pointer justify-between hpt hover:bg-input py-2 pl-2 rounded">
                             <div className="flex items-center">
                                 <Image src={img} width={70} height={70} className={"object-cover rounded"} alt={"Logo song"}/>
                                 <div className={"ml-2"}>

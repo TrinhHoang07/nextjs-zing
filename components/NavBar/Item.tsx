@@ -24,9 +24,9 @@ function Item({item}: {item: Info}) {
 
     return (
         <Link href={item.link}>
-            <a ref={eRef} onClick={handleActive} className={`${pathname === item.link && 'bg-secondary'} select-none text-three js-active flex items-center py-nav cursor-pointer pl-7`}>
+            <a ref={eRef} onClick={handleActive} className={`${pathname === item.link && 'bg-secondary'}  select-none text-three js-active flex items-center py-nav cursor-pointer md:pl-0 lg:pl-7`}>
                 {item.icon}
-                <p className="ml-2 text-sm font-medium">{item.name}</p>
+                <p className="ml-2 flex-shrink-0 text-sm font-medium">{item.name}</p>
             </a>
         </Link>
     )

@@ -16,20 +16,13 @@ import NewSong from "./NewSong";
 import Event from "./Event";
 import FavoriteSinger from "./FavoriteSinger";
 import Footer from "./Footer";
+import SWBanner from "./SwiperBanner";
 
 function Content() {
 
     return <div className={""}>
         <div className="flex pt-6 items-center justify-evenly">
-            <div className={"w-1/3 h-auto p-3"}>
-                <Image src={img} className={"rounded-md"} alt="coco" />
-            </div>
-            <div className={"w-1/3 h-auto p-3"}>
-                <Image src={img} className={"rounded-md"} alt="coco" />
-            </div>
-            <div className={"w-1/3 h-auto p-3"}>
-                <Image src={img} className={"rounded-md"} alt="coco" />
-            </div>
+            <SWBanner />
         </div>
         <NewReleased />
         <TodayChoice />

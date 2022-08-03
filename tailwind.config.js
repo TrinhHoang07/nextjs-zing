@@ -53,7 +53,8 @@ module.exports = {
         '120px': '120px'
       },
       gridTemplateColumns: {
-        'pro': '240px 1fr'
+        'pro': '240px 1fr',
+        'noPro': '70px 1fr'
       },
       gridTemplateRows: {
         'pro': '1fr 90px'

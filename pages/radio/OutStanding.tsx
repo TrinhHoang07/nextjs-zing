@@ -11,8 +11,8 @@ function OutStanding() {
             <div className="flex items-center justify-between">
                 <h2 className={"text-white font-bold text-xl"}>Các Tập Nổi Bật</h2>
             </div>
-            <div className="flex items-center mt-6">
-                <div className="w-1/3 text-white">
+            <div className="flex items-center mt-6 lg:flex-nowrap md:flex-wrap">
+                <div className="lg:w-1/3 md:w-1/2 text-white">
                     <div className="flex relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
                         <div className="flex">
                             <Image src={img} width={60} height={60} className={"object-cover rounded"}
@@ -86,7 +86,7 @@ function OutStanding() {
                         </Tooltip>
                     </div>
                 </div>
-                <div className="w-1/3 text-white mx-6">
+                <div className="lg:w-1/3 md:w-1/2 text-white lg:mx-6 md:mx-0">
                     <div className="flex relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
                         <div className="flex">
                             <Image src={img} width={60} height={60} className={"object-cover rounded"}
@@ -160,8 +160,8 @@ function OutStanding() {
                         </Tooltip>
                     </div>
                 </div>
-                <div className="w-1/3 text-white">
-                    <div className="flex relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
+                <div className="lg:w-1/3 md:w-full lg:block md:flex flex-wrap text-white">
+                    <div className="flex lg:w-full md:w-1/2 relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
                         <div className="flex">
                             <Image src={img} width={60} height={60} className={"object-cover rounded"}
                                    alt={"Logo song"}/>
@@ -185,7 +185,7 @@ function OutStanding() {
                             </div>
                         </Tooltip>
                     </div>
-                    <div className="flex relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
+                    <div className="flex lg:w-full md:w-1/2 relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
                         <div className="flex">
                             <Image src={img} width={60} height={60} className={"object-cover rounded"}
                                    alt={"Logo song"}/>
@@ -209,7 +209,7 @@ function OutStanding() {
                             </div>
                         </Tooltip>
                     </div>
-                    <div className="flex relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
+                    <div className="flex lg:w-full md:w-1/2 relative items-center select-none cursor-pointer justify-between hpt hover:bg-input py-3 pl-3 rounded">
                         <div className="flex">
                             <Image src={img} width={60} height={60} className={"object-cover rounded"}
                                    alt={"Logo song"}/>

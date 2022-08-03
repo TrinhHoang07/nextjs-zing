@@ -22,7 +22,7 @@ function Layout({children}: Props) {
     }
 
     return (
-        <div onClick={handleClick} className={"grid grid-cols-pro grid-rows-pro h-full"}>
+        <div onClick={handleClick} className={"grid lg:grid-cols-pro md:grid-cols-noPro sm:grid-cols-noPro grid-rows-pro h-full"}>
             <NavBar />
             <main className="col-span-1 row-span-2 px-59 bg-header scrollMain overflow-y-auto">
                 <Header />

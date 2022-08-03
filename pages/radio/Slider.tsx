@@ -45,10 +45,10 @@ const sliderArr = [
 
 function Slider() {
     return (
-        <div className={"flex items-center justify-between mt-8"}>
+        <div className={"flex items-center flex-wrap justify-between mt-8"}>
             {
                 sliderArr.map(slider => (
-                    <div key={slider.id} className={"w-1/6 mx-3"}>
+                    <div key={slider.id} className={"lg:w-1/6 md:w-1/5 px-3 lg:pt-0 md:pt-2"}>
                         <div className={"flex relative cursor-pointer hpt"}>
                             <Image src={img} className={"rounded-full hover:animate-scaleOne"} alt={"logo slider"}/>
                             <Progress type="circle"

@@ -80,10 +80,20 @@ export default function SW() {
                 delay: 2500,
             }}
             loop={true}
-            loopFillGroupWithBlank={true}
             slidesPerView={6}
             navigation={true}
             pagination={{ clickable: true }}
+            breakpoints={{
+                640: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 5,
+                },
+                1024: {
+                    slidesPerView: 6,
+                },
+            }}
         >
             {
                 singers.map(singer => (

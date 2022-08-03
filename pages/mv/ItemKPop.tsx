@@ -37,7 +37,7 @@ function ItemKPOP() {
             <div className="flex flex-wrap items-center">
                 {
                     arrMV.map(item => (
-                        <div key={item.id} className="w-1/3 p-3">
+                        <div key={item.id} className="lg:w-1/3 md:w-1/2 p-3">
                             <div className="rounded-lg overflow-hidden">
                                 <div className="relative cursor-pointer hover:animate-scaleOne hpt flex">
                                     <Image className={"rounded-lg"} src={img} alt={"item logo"} />
